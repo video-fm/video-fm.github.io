@@ -1,0 +1,3 @@
+[submodule "LASER_Web_Demo"]
+	path = LASER_Web_Demo
+	url = git@github.com:kuomat/LASER_Web_Demo.git
