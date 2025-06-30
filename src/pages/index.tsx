@@ -24,7 +24,7 @@ export default function Home() {
           <a className="button" href="https://github.com/your-repo-link" target="_blank" rel="noopener noreferrer">
             💻 Code
           </a>
-          <a className="button" href="https://your-demo-link" target="_blank" rel="noopener noreferrer">
+          <a className="button" href="http://localhost:5173" target="_blank" rel="noopener noreferrer">
             🚀 Demo
           </a>
         </div>
