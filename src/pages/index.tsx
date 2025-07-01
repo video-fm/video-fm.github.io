@@ -18,13 +18,13 @@ export default function Home() {
           <span>ICLR 2025</span>
         </div>
         <div className="links">
-          <a className="button" href="https://arxiv.org/abs/your-paper-link" target="_blank" rel="noopener noreferrer">
+          <a className="button" href="https://arxiv.org/abs/2304.07647" target="_blank" rel="noopener noreferrer">
             📄 Paper
           </a>
-          <a className="button" href="https://github.com/your-repo-link" target="_blank" rel="noopener noreferrer">
+          <a className="button" href="https://github.com/video-fm/LASER" target="_blank" rel="noopener noreferrer">
             💻 Code
           </a>
-          <a className="button" href="http://localhost:5173" target="_blank" rel="noopener noreferrer">
+          <a className="button" href="http://localhost:8000" target="_blank" rel="noopener noreferrer">
             🚀 Demo
           </a>
         </div>
