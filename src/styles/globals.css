@@ -1,9 +1,26 @@
+:root {
+  /* Main color palette */
+  --color-primary: #1976d2;         /* Blue (links, highlights) */
+  --color-primary-dark: #115293;    /* Darker blue (titles, hovers) */
+  --color-accent: #b22;             /* Red accent (conference, highlights) */
+  --color-bg: #fff;                 /* Page background */
+  --color-surface: #f8f9fa;         /* Card/video background */
+  --color-text: #222;               /* Main text */
+  --color-text-light: #444;         /* Slightly lighter text */
+  --color-text-muted: #888;         /* Muted/secondary text */
+  --color-link: #017dc4;            /* Link color */
+  --color-link-hover: #115293;      /* Link hover color */
+  --color-border: #e0e0e0;          /* Light border */
+  --color-shadow: rgba(25, 118, 210, 0.06); /* Subtle blue shadow */
+  --section-font-size: 1.4rem; /* or your preferred size */
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  background: #fff;
-  color: #222;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
 .container {
@@ -23,24 +40,25 @@ body {
 .authors-list {
   font-size: 1.5rem;
   margin-bottom: 8px;
-  color: #444;
+  color: var(--color-text-muted);
   text-align: center;
   line-height: 2;
 }
 
 .authors-list a {
-  color: #1976d2;
+  color: var(--color-link);
   text-decoration: none;
   font-weight: 600;
 }
 
 .authors-list a:hover {
   text-decoration: underline;
+  color: var(--color-link-hover);
 }
 
 .affiliations-list {
   font-size: 1.2rem;
-  color: #666;
+  color: var(--color-text-muted);
   text-align: center;
   margin-bottom: 24px;
 }
@@ -53,14 +71,14 @@ body {
 }
 
 .affiliation {
-  color: #888;
+  color: var(--color-text-muted);
   font-size: 0.95em;
   font-weight: 400;
 }
 .conference {
   font-size: 1.1rem;
   margin-bottom: 32px;
-  color: #b22;
+  color: var(--color-accent);
   font-weight: 600;
 }
 
@@ -73,19 +91,19 @@ body {
 
 .button {
   display: inline-block;
-  background: #222;
-  color: #fff;
+  background: var(--color-text);
+  color: var(--color-bg);
   font-size: 1.1rem;
   font-weight: 500;
   padding: 12px 28px;
   border-radius: 30px;
   text-decoration: none;
   transition: background 0.2s;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  box-shadow: 0 2px 8px var(--color-shadow);
 }
 
 .button:hover {
-  background: #444;
+  background: var(--color-text-light);
 }
 
 /* Video Section Styles */
@@ -95,10 +113,10 @@ body {
 }
 
 .section-title {
-  font-size: 2rem;
+  font-size: calc(var(--section-font-size) * 1.3);
   font-weight: 700;
   margin-bottom: 32px;
-  color: #222;
+  color: var(--color-text);
 }
 
 .video-grid {
@@ -114,7 +132,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #f8f9fa;
+  background: var(--color-surface);
   border-radius: 2px;
   padding: 0;
   box-shadow: 0 2px 2px rgba(0,0,0,0.12);
@@ -156,7 +174,7 @@ body {
 
 .video-caption {
   font-size: 1.15rem;
-  color: #444;
+  color: var(--color-text-muted);
   margin-bottom: 18px;
   margin-top: 18px;
   text-align: center;
@@ -193,21 +211,14 @@ body {
   }
 }
 
-.overview-highlight {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 32px 0 36px 0;
-  font-size: 1.18rem;
-  color: #234;
-  border-radius: 0;
-  box-shadow: none;
-  max-width: 100%;
-  line-height: 1.7;
-  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+.overview-section,
+.pipeline-section,
+.overview-highlight,
+.pipeline-highlight {
+  font-size: var(--section-font-size);
 }
 
 .overview-highlight b {
-  color: #1976d2;
+  color: var(--color-link);
   font-weight: 700;
 }
