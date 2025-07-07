@@ -11,7 +11,7 @@ This project is a website showcasing the paper titled "LASER: A Neuro-Symbolic F
 ## Links
 - [Paper](URL_TO_PAPER)
 - [Code](URL_TO_CODE)
-- [Demo](URL_TO_DEMO)
+- [Dataset](URL_TO_DATASET)
 
 ## Getting Started
 
