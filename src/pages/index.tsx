@@ -1,152 +1,300 @@
 import Head from 'next/head';
+import Link from 'next/link';
 
 export default function Home() {
-  const videos = [
-    { src: '/annotated_videos/1.mp4', title: 'Video 1' },
-    { src: '/annotated_videos/2.mp4', title: 'Video 2' },
-    { src: '/annotated_videos/3.mp4', title: 'Video 3' },
-    { src: '/annotated_videos/4.mp4', title: 'Video 4' },
-    { src: '/annotated_videos/5.mp4', title: 'Video 5' },
-    { src: '/annotated_videos/6.mp4', title: 'Video 6' },
-  ];
-
-  const authors = [
-    {
-      name: "Jiani Huang",
-      website: "https://www.cis.upenn.edu/~jianih/",
-      affiliations: [1],
-    },
-    {
-      name: "Ziyang Li",
-      website: "https://liby99.github.io/",
-      affiliations: [1],
-    },
-    {
-      name: "Mayur Naik",
-      website: "https://www.cis.upenn.edu/~mhnaik/",
-      affiliations: [1],
-    },
-    {
-      name: "Ser-Nam Lim",
-      website: "https://ai.ucf.edu/person/ser-nam-lim/",
-      affiliations: [2],
-    },
-  ];
-
-  const affiliations = [
-    { id: 1, name: "University of Pennsylvania" },
-    { id: 2, name: "University of Central Florida" },
-  ];
-
   return (
     <>
-      <Head>
-        <title>LASER: A Neuro-Symbolic Framework for Learning Spatio-Temporal Scene Graphs with Weak Supervision</title>
-        <meta name="description" content="ICLR 2025 Paper: LASER" />
+              <Head>
+        <title>VINE: Video Intelligence Foundation Model</title>
+        <meta name="description" content="VINE: Video Intelligence Foundation Model for Video Understanding" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <main className="container">
-        <h1 className="title">
-          LASER: A Neuro-Symbolic Framework for Learning Spatio-Temporal Scene Graphs with Weak Supervision
-        </h1>
-        <div className="authors-list">
-          {authors.map((author, idx) => (
-            <span key={author.name}>
-              <a href={author.website} target="_blank" rel="noopener noreferrer">
-                {author.name}
-              </a>
-              <sup>
-                {author.affiliations.map((num, i) => (
-                  <span key={num}>
-                    {num}
-                    {i < author.affiliations.length - 1 && ","}
-                  </span>
-                ))}
-              </sup>
-              {idx < authors.length - 1 && ", "}
-            </span>
-          ))}
+
+      {/* Navigation */}
+      <nav className="nav">
+        <div className="nav-container">
+          <div className="nav-brand">
+            <img 
+              src="/images/logo.png" 
+              alt="VINE Logo"
+              className="nav-logo"
+            />
+            <div className="nav-text">
+              <span className="brand-text">VINE</span>
+              <span className="brand-subtitle">Video Intelligence Foundation Model</span>
+            </div>
+          </div>
         </div>
-        <div className="affiliations-list">
-          {affiliations.map((aff, idx) => (
-            <span key={aff.id}>
-              <sup>{aff.id}</sup> {aff.name}
-              {idx < affiliations.length - 1 && ", "}
-            </span>
-          ))}
-        </div>
-        <div className="conference">
-          <span>ICLR 2025</span>
-        </div>
-        <div className="links">
-          <a className="button" href="https://arxiv.org/abs/2304.07647" target="_blank" rel="noopener noreferrer">
-            📄 Paper
-          </a>
-          <a className="button" href="https://github.com/video-fm/LASER" target="_blank" rel="noopener noreferrer">
-            💻 Code
-          </a>
-          <a className="button" href="http://localhost:8000" target="_blank" rel="noopener noreferrer">
-            📊 Dataset
-          </a>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="hero-background">
+          <div className="hero-content">
+            <div className="hero-text">
+              <div className="hero-title-container">
+                <h1 className="hero-title">
+                  VINE: Video Intelligence Foundation Model
+                </h1>
+                <div className="hero-logo">
+                  <img 
+                    src="/images/logo.png" 
+                    alt="VINE Logo"
+                    className="hero-logo-image"
+                  />
+                </div>
+              </div>
+              <div className="hero-quote">
+                "If a picture is worth 1000 words, how many is a video worth?"
+              </div>
+              <p className="hero-description">
+                Video understanding is the future. There is a wealth of data locked inside video that traditional methods cannot unlock. Our foundation model helps extract meaningful insights from real-time video data, with future applications in healthcare monitoring, robotic perception, and security analysis.
+              </p>
+              <p className="hero-description">
+                VINE is a foundation model specifically designed for real-time video understanding, providing unprecedented capabilities for extracting spatio-temporal scene graphs from video data.
+              </p>
+              <div className="hero-actions">
+                <a href="#" className="demo-button">
+                  <span className="button-icon">▶</span>
+                  Try the demo
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
         
-        <div className="video-section">
-          <div className="video-grid">
-            {videos.map((video, index) => (
-              <div key={index} className="video-item">
+                {/* Hero Videos */}
+        <div className="hero-videos">
+          <div className="video-grid-hero">
+            <div className="video-item">
+              <video 
+                src="/annotated_videos/2.mp4"
+                className="hero-video"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+            </div>
+            <div className="video-item">
+              <video 
+                src="/annotated_videos/3.mp4"
+                className="hero-video"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+            </div>
+            <div className="video-item">
+              <video 
+                src="/annotated_videos/4.mp4"
+                className="hero-video"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+            </div>
+          </div>
+          <div className="hero-video-caption">
+            VINE running on videos, outputting the scene graph for each frame
+          </div>
+        </div>
+      </section>
+
+      <main className="main-content">
+        {/* Modularity Section */}
+        <section className="section">
+          <div className="section-container">
+            <h2 className="section-title">Modularity</h2>
+            <p className="section-description">
+              VINE's architecture is designed with flexibility at its core, allowing seamless integration with various state-of-the-art segmentation models. VINE can leverage Grounding Dino, YOLO, or SAM for highly accurate zero-shot segmentation—all without modifying the core framework. This modular design means you can choose the segmentation backend that best fits your use case: prioritize speed with YOLO for live applications, accuracy with SAM for detailed analysis, or flexibility with DINO for open world detection. The segmentation module feeds its masks or bounding boxes into our fine-tuned CLIP model, which then generates the spatio-temporal scene graph. This plug-and-play approach ensures VINE stays current with advances in computer vision while maintaining consistent downstream performance.
+            </p>
+            
+            <div className="content-grid">
+              <div className="video-showcase">
                 <video 
-                  src={video.src} 
-                  className="video-gif"
+                  src="/annotated_videos/1.mp4"
+                  className="showcase-video"
                   autoPlay
                   muted
                   loop
                   playsInline
                 />
+                <div className="video-caption">
+                  VINE run with SAM with masks
+                </div>
               </div>
-            ))}
-          </div>
-          <div className="video-caption">
-            videos annotated with generated Spatio-Temporal Scene Graphs
-          </div>
-        </div>
-
-        <div className="overview-section">
-          <h2 className="section-title">Overview</h2>
-          <div className="overview-highlight">
-            <p>
-              Supervised approaches for learning spatio-temporal scene graphs (STSG) from video are greatly hindered due to their reliance on STSG-annotated videos, which are labor-intensive to construct at scale. Is it feasible to instead use readily available video captions as weak supervision? To address this question, we propose <b>LASER</b>, a neuro-symbolic framework to enable training STSG generators using only video captions. LASER employs large language models to first extract logical specifications with rich spatio-temporal semantic information from video captions. LASER then trains the underlying STSG generator to align the predicted STSG with the specification. The alignment algorithm overcomes the challenges of weak supervision by leveraging a differentiable symbolic reasoner and using a combination of contrastive, temporal, and semantics losses. The overall approach efficiently trains low-level perception models to extract a fine-grained STSG that conforms to the video caption. In doing so, it enables a novel methodology for learning STSGs without tedious annotations. We evaluate our method on three video datasets: OpenPVSG, 20BN, and MUGEN.
-            </p>
-          </div>
-        </div>
-
-        <div className="pipeline-section">
-          <h2 className="section-title">Pipeline</h2>
-          <div className="pipeline-highlight">
-           <div className="img-container">
-              <img
-                src="/images/nl2spec.png"
-                alt="NL2Spec Example"
-                className="overview-image"
-                style={{ maxWidth: "100%", margin: "32px 0", borderRadius: "8px" }}
-              />
-              <div className="img-caption">Figure: Example of transforming a caption into a logical specification.</div>
+              <div className="video-showcase">
+                <video 
+                  src="/annotated_videos/7.mp4"
+                  className="showcase-video"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="video-caption">
+                  VINE run with Grounding DINO with bounding boxes
+                </div>
+              </div>
             </div>
-            <p>
-              <b>Logical Extraction:</b> Weak supervision emerges as a promising approach to address this challenge. For example, the vast availability of video captions provides a valuable source of weak supervisory signals. However, key difficulties arise in effectively learning STSGs from such weak supervision. Is it even feasible to use video captions given the sparsity and noise in the signals they provide? Captions often focus only on the primary objects, ignoring underlying details, and many temporal signals are either hidden or must be inferred. How can we provide useful fine-grained signals under such circumstances? To address these challenges, we propose transforming captions into logical specifications using large language models to explicitly reveal the hidden spatial and temporal information. This transformation creates a shared foundation to systematically align captions with predicted STSGs. The alignment process should a) capture both spatial and temporal nuances to provide fine-grained supervision for underlying STSG generators; b) allow diversity, naturalness, and fuzziness in the video and caption data; and c) account for common-sense knowledge that may be implicit or ambiguous in the captions.
-            </p>
-            <div className="img-container">
-              <img
-                src="/images/learning_pipeline.png"
-                alt="Learning Pipeline"
-                className="overview-image"
-                style={{ maxWidth: "100%", margin: "32px 0", borderRadius: "8px" }}
-              />
-              <div className="img-caption">Figure: Overview of the LASER learning pipeline.</div>
-            </div>
-            <p>
-              <b>Neuro-symbolic Training:</b> We now introduce <b>LASER</b>, a novel framework to enable training STSG generators using only video captions. As illustrated in Figure 1, LASER enhances a vision-language model by aligning its predicted STSGs with STSL specifications derived from video captions using large language models. This alignment process is carried out in a divide-and-conquer fashion, where the caption is broken down into temporally related events, each of which must correspond with a portion of the STSG. We enhance the alignment process in two important aspects. First, to ensure precise optimization, we implement a neuro-symbolic alignment checker atop the Scallop framework (Li et al., 2023), making the alignment both probabilistic and differentiable. This enables seamless integration into an end-to-end learning pipeline. Second, to complement the weak supervision, we introduce a multi-faceted loss function that includes contrastive, temporal, and semantic components, which provide additional layers of supervision.
-            </p>
           </div>
-        </div>
+        </section>
+
+        {/* Efficiency Section */}
+        <section className="section section-gray">
+          <div className="section-container">
+            <h2 className="section-title">Efficiency</h2>
+            <p className="section-description">
+              VINE is engineered for speed and accessibility, running smoothly on everything from consumer CPUs to high-end GPUs and cloud TPUs. Unlike heavyweight video understanding models that demand specialized hardware, VINE's efficient late fusion architecture keeps computational requirements minimal while maintaining real-time performance. The framework is compatible with both PyTorch and JAX, allowing developers to leverage their preferred ecosystem and hardware acceleration. 
+            </p>
+            
+            {/* Performance Tables - Placeholder */}
+            <div className="performance-tables">
+              <div className="table-container">
+                <h3 className="table-title">Performance Benchmarks</h3>
+                <div className="table-placeholder">
+                  <div className="placeholder-content">
+                    <div className="placeholder-text">Performance comparison tables will be displayed here</div>
+                    <div className="placeholder-subtext">Hardware compatibility and inference speed metrics</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="table-container">
+                <h3 className="table-title">Hardware Compatibility</h3>
+                <div className="table-placeholder">
+                  <div className="placeholder-content">
+                    <div className="placeholder-text">Hardware support matrix will be displayed here</div>
+                    <div className="placeholder-subtext">CPU, GPU, and TPU performance metrics</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Zero-shot Generalizability Section */}
+        <section className="section">
+          <div className="section-container">
+            <h2 className="section-title">Zero-shot Generalizability</h2>
+            <p className="section-description">
+              VINE has learned a general notion of what scene graphs are -- this understanding enables zero-shot generalization to unfamiliar objects and actions without requiring additional training. We show VINE on an action localization task without any further finetuning.
+            </p>
+            
+            <div className="single-video-showcase">
+              <video 
+                src="/annotated_videos/8.mp4"
+                className="feature-video"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+              <div className="video-caption">
+                Zero-shot action localization without additional training
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Promptability and Finetunability Section */}
+        <section className="section section-gray">
+          <div className="section-container">
+            <h2 className="section-title">Promptability and Finetunability</h2>
+            <div className="placeholder-section">
+              <div className="placeholder-content">
+                <div className="placeholder-text">Promptability and Finetunability content coming soon</div>
+                <div className="placeholder-subtext">VINE can be adapted to downstream tasks through various prompting and fine-tuning strategies</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Dataset Section */}
+        <section className="section">
+          <div className="section-container">
+            <h2 className="section-title">Dataset</h2>
+            <div className="placeholder-section">
+              <div className="placeholder-content">
+                <div className="placeholder-text">Dataset information coming soon</div>
+                <div className="placeholder-subtext">Comprehensive video understanding dataset details and download links</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Team Section */}
+        <section className="section team">
+          <div className="section-container">
+            <h2 className="section-title">Team</h2>
+            
+            <div className="team-grid">
+              <div className="team-category">
+                <h3 className="team-title">Core Contributors</h3>
+                <div className="team-members">
+                  <div className="team-member">
+                    <div className="member-name">Jiani Huang</div>
+                    <div className="member-affiliation">University of Pennsylvania</div>
+                  </div>
+                  <div className="team-member">
+                    <div className="member-name">Amish Sethi</div>
+                    <div className="member-affiliation">University of Pennsylvania</div>
+                  </div>
+                  <div className="team-member">
+                    <div className="member-name">Matthew Kuo</div>
+                    <div className="member-affiliation">University of Pennsylvania</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="team-category">
+                <h3 className="team-title">Collaborators</h3>
+                <div className="team-members">
+                  <div className="team-member">
+                    <div className="member-name">Ziyang Li</div>
+                    <div className="member-affiliation">University of Pennsylvania</div>
+                  </div>
+                  <div className="team-member">
+                    <div className="member-name">Mayank Keoliya</div>
+                    <div className="member-affiliation">University of Pennsylvania</div>
+                  </div>
+                  <div className="team-member">
+                    <div className="member-name">Neelay Velingker</div>
+                    <div className="member-affiliation">University of Pennsylvania</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="team-category">
+                <h3 className="team-title">Faculty</h3>
+                <div className="team-members">
+                  <div className="team-member">
+                    <div className="member-name">Mayur Naik</div>
+                    <div className="member-affiliation">University of Pennsylvania</div>
+                  </div>
+                  <div className="team-member">
+                    <div className="member-name">Sernam Lim</div>
+                    <div className="member-affiliation">University of Central Florida</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="penn-logo-section">
+              <div className="penn-logo">
+                <img 
+                  src="/images/penn_logo.png" 
+                  alt="University of Pennsylvania Logo"
+                  className="penn-logo-image"
+                />
+                <div className="penn-text">University of Pennsylvania</div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );
