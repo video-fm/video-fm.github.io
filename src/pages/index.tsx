@@ -6,7 +6,7 @@ export default function Home() {
     <>
               <Head>
         <title>VINE: Video Intelligence Foundation Model</title>
-        <meta name="description" content="VINE: Video Intelligence Foundation Model for Video Understanding" />
+        <meta name="description" content="VINE: A Foundation Model for Video Understanding" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
@@ -21,7 +21,7 @@ export default function Home() {
             />
             <div className="nav-text">
               <span className="brand-text">VINE</span>
-              <span className="brand-subtitle">Video Intelligence Foundation Model</span>
+              <span className="brand-subtitle">A Foundation Model for Video Understanding</span>
             </div>
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function Home() {
             <div className="hero-text">
               <div className="hero-title-container">
                 <h1 className="hero-title">
-                  VINE: Video Intelligence Foundation Model
+                  VINE: A Foundation Model for Video Understanding
                 </h1>
                 <div className="hero-logo">
                   <img 
@@ -65,20 +65,10 @@ export default function Home() {
         
                 {/* Hero Videos */}
         <div className="hero-videos">
-          <div className="video-grid-hero">
+          <div className="video-grid-hero video-grid-two">
             <div className="video-item">
               <video 
                 src="/annotated_videos/2.mp4"
-                className="hero-video"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-            </div>
-            <div className="video-item">
-              <video 
-                src="/annotated_videos/3.mp4"
                 className="hero-video"
                 autoPlay
                 muted
@@ -217,10 +207,56 @@ export default function Home() {
         <section className="section">
           <div className="section-container">
             <h2 className="section-title">Dataset</h2>
-            <div className="placeholder-section">
-              <div className="placeholder-content">
-                <div className="placeholder-text">Dataset information coming soon</div>
-                <div className="placeholder-subtext">Comprehensive video understanding dataset details and download links</div>
+            
+            <div className="dataset-header">
+              <h3 className="dataset-name">ESCA-Video-87K</h3>
+              <p className="dataset-tagline">A new benchmark for video understanding</p>
+            </div>
+            
+            <div className="dataset-layout">
+              <div className="dataset-content">
+                <div className="dataset-description">
+                  <p className="dataset-overview">
+                    <strong>87,045 video clips</strong> curated and annotated to push the boundaries of video understanding. Each clip is paired with rich, natural language captions crafted by GPT-4.
+                  </p>
+                  
+                  <p className="dataset-details">
+                    Our dataset uses precise object traces, dynamically segmented using Grounding DINO and SAM2. With programmatic specifications built in linear temporal logic, every clip becomes a structured video you can track, query, and reason about—frame by frame.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="dataset-video-showcase">
+                <video 
+                  src="/annotated_videos/dataset.mp4"
+                  className="dataset-video"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <div className="video-caption">
+                  ESCA-Video-87K dataset samples  
+                </div>
+              </div>
+            </div>
+            
+            <div className="dataset-stats">
+              <div className="stat-item">
+                <div className="stat-number">87K+</div>
+                <div className="stat-label">Video Clips</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">GPT-4</div>
+                <div className="stat-label">Generated Captions</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">LTL</div>
+                <div className="stat-label">Specifications</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">Dynamic</div>
+                <div className="stat-label">Segmentation</div>
               </div>
             </div>
           </div>
