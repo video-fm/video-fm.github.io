@@ -1,5 +1,107 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import { useState } from 'react';
+
+function PromptabilityDemo() {
+  const [selectedObjects, setSelectedObjects] = useState('["person","sofa"]');
+  const [isLoading, setIsLoading] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
+  const [currentVideo, setCurrentVideo] = useState('');
+
+  const objectOptions = [
+    { value: '["person","sofa"]', label: 'person, sofa', video: '/annotated_videos/12.mp4' },
+    { value: '["sofa","dog"]', label: 'sofa, dog', video: '/annotated_videos/13.mp4' },
+    { value: '["person","dog"]', label: 'person, dog', video: '/annotated_videos/14.mp4' }
+  ];
+
+  const handlePlay = () => {
+    setIsLoading(true);
+    setShowVideo(false);
+    
+    // Find the selected option and get the corresponding video
+    const selectedOption = objectOptions.find(option => option.value === selectedObjects);
+    if (selectedOption) {
+      setCurrentVideo(selectedOption.video);
+    }
+    
+    // Simulate loading time
+    setTimeout(() => {
+      setIsLoading(false);
+      setShowVideo(true);
+    }, 1500);
+  };
+
+  return (
+    <div className="promptability-demo">
+      <div className="demo-container">
+        <div className="input-section">
+          <div className="input-group">
+            <label className="input-label">Objects to prompt:</label>
+            <div className="input-controls">
+              <select 
+                value={selectedObjects}
+                onChange={(e) => setSelectedObjects(e.target.value)}
+                className="objects-dropdown"
+              >
+                {objectOptions.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+              <button 
+                onClick={handlePlay}
+                className="play-button"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <div className="loading-spinner"></div>
+                ) : (
+                  <span className="play-icon">▶</span>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div className="demo-output">
+          {isLoading && (
+            <div className="loading-container">
+              <div className="loading-content">
+                <div className="loading-spinner large"></div>
+                <p className="loading-text">Processing VINE prompt...</p>
+              </div>
+            </div>
+          )}
+          
+          {showVideo && currentVideo && (
+            <div className="video-result">
+              <video 
+                src={currentVideo}
+                className="prompt-video"
+                autoPlay
+                muted
+                loop
+                playsInline
+                key={currentVideo}
+              />
+              <div className="result-caption">
+                VINE adapting to different object prompts in real-time
+              </div>
+            </div>
+          )}
+          
+          {!isLoading && !showVideo && (
+            <div className="demo-placeholder">
+              <div className="placeholder-icon">🎯</div>
+              <p>Select objects and click play to see VINE in action</p>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
   return (
@@ -171,20 +273,54 @@ export default function Home() {
           <div className="section-container">
             <h2 className="section-title">Zero-shot Generalizability</h2>
             <p className="section-description">
-              VINE has learned a general notion of what scene graphs are -- this understanding enables zero-shot generalization to unfamiliar objects and actions without requiring additional training. We show VINE on an action localization task without any further finetuning.
+              VINE has learned a general notion of what scene graphs are -- this understanding enables zero-shot generalization to unfamiliar objects and actions without requiring additional training. We show VINE on various action localization tasks without any further finetuning.
             </p>
             
-            <div className="single-video-showcase">
-              <video 
-                src="/annotated_videos/8.mp4"
-                className="feature-video"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
+            <div className="zero-shot-videos">
+              <div className="video-grid-four">
+                <div className="video-item">
+                  <video 
+                    src="/annotated_videos/8.mp4"
+                    className="zero-shot-video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                </div>
+                <div className="video-item">
+                  <video 
+                    src="/annotated_videos/9.mp4"
+                    className="zero-shot-video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                </div>
+                <div className="video-item">
+                  <video 
+                    src="/annotated_videos/10.mp4"
+                    className="zero-shot-video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                </div>
+                <div className="video-item">
+                  <video 
+                    src="/annotated_videos/11.mp4"
+                    className="zero-shot-video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  />
+                </div>
+              </div>
               <div className="video-caption">
-                Zero-shot action localization without additional training
+                Zero-shot action localization across diverse scenarios without additional training
               </div>
             </div>
           </div>
@@ -194,12 +330,101 @@ export default function Home() {
         <section className="section section-gray">
           <div className="section-container">
             <h2 className="section-title">Promptability and Finetunability</h2>
-            <div className="placeholder-section">
-              <div className="placeholder-content">
-                <div className="placeholder-text">Promptability and Finetunability content coming soon</div>
-                <div className="placeholder-subtext">VINE can be adapted to downstream tasks through various prompting and fine-tuning strategies</div>
-              </div>
-            </div>
+            <p className="section-description">
+              VINE's foundation architecture enables powerful downstream adaptation through both prompting and fine-tuning strategies. The model can be dynamically prompted to focus on specific objects and relationships, returning probabilistic confidence scores for detected entities and their interactions.
+            </p>
+            
+            <PromptabilityDemo />
+            
+            <div className="promptability-content">
+              <div className="content-grid">
+                <div className="feature-block">
+                  <h3 className="feature-title">Probabilistic Prompting</h3>
+                  <p className="feature-description">
+                    VINE operates probabilistically, allowing you to prompt for specific objects, actions, or relationships and receive confidence scores for all detected entities. Rather than binary detection, VINE provides  probability distributions across the entire scene graph, enabling fine-grained control over what the model focuses on during inference.
+                  </p>
+
+                </div>
+                
+                <div className="feature-block">
+                  <h3 className="feature-title">Fine-tuning & Adaptation</h3>
+                  <p className="feature-description">
+                    Beyond prompting, VINE's foundation model can be efficiently fine-tuned for specialized downstream tasks. The modular architecture enables task-specific adaptation through either full finetuning or parameter-efficient techniques while preserving the core video understanding capabilities, making it suitable for domain-specific applications across industries.
+                  </p>
+    
+                </div>
+                              </div>
+               
+               <div className="performance-results">
+                 <h3 className="results-title">Finetuned Action Recognition Performance</h3>
+                 <p className="results-description">
+                   VINE demonstrates strong performance on action recognition across different training scenarios on ActivityNet. We compare against state-of-the-art action recognition models including BIKE, Text4Vis, ResT, and E2E, showing competitive zero-shot and finetuned capabilities.
+                 </p>
+                 
+                 <div className="performance-table-container">
+                   <table className="performance-table">
+                     <thead>
+                       <tr>
+                         <th>Category</th>
+                         <th>Model</th>
+                         <th>ActivityNet Accuracy (%)</th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <tr className="category-row">
+                         <td rowSpan={6} className="category-cell">Zero-shot</td>
+                         <td>SGClip</td>
+                         <td className="accuracy-cell">76.34</td>
+                       </tr>
+                       <tr>
+                         <td>CLIP</td>
+                         <td className="accuracy-cell">74.37</td>
+                       </tr>
+                       <tr>
+                         <td>BIKE</td>
+                         <td className="accuracy-cell highlight">80.00</td>
+                       </tr>
+                       <tr>
+                         <td>Text4vis</td>
+                         <td className="accuracy-cell">77.40</td>
+                       </tr>
+                       <tr>
+                         <td>ResT</td>
+                         <td className="accuracy-cell">26.30</td>
+                       </tr>
+                       <tr>
+                         <td>E2E</td>
+                         <td className="accuracy-cell">20.00</td>
+                       </tr>
+                       <tr className="category-row">
+                         <td rowSpan={2} className="category-cell">Few-shot (1%)</td>
+                         <td>SGClip</td>
+                         <td className="accuracy-cell highlight">80.10</td>
+                       </tr>
+                       <tr>
+                         <td>CLIP</td>
+                         <td className="accuracy-cell">78.79</td>
+                       </tr>
+                       <tr className="category-row">
+                         <td rowSpan={2} className="category-cell">Few-shot (5%)</td>
+                         <td>SGClip</td>
+                         <td className="accuracy-cell highlight">86.05</td>
+                       </tr>
+                       <tr>
+                         <td>CLIP</td>
+                         <td className="accuracy-cell">80.02</td>
+                       </tr>
+
+                     </tbody>
+                   </table>
+                 </div>
+                 
+                 <p className="table-caption">
+                   Action recognition accuracy on ActivityNet for zero-shot and few-shot (finetuned on 1% and 5% of the data) models. Zero-shot baselines include state-of-the-art action recognition models (BIKE, Text4Vis, ResT, E2E) and our models evaluated without training.
+                 </p>
+               </div>
+              
+             </div>
           </div>
         </section>
 
@@ -247,16 +472,16 @@ export default function Home() {
                 <div className="stat-label">Video Clips</div>
               </div>
               <div className="stat-item">
+                <div className="stat-number">100</div>
+                <div className="stat-label">Trajectories per vid</div>
+              </div>
+              <div className="stat-item">
+                <div className="stat-number">500k+</div>
+                <div className="stat-label">Masks</div>
+              </div>
+              <div className="stat-item">
                 <div className="stat-number">GPT-4</div>
-                <div className="stat-label">Generated Captions</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">LTL</div>
-                <div className="stat-label">Specifications</div>
-              </div>
-              <div className="stat-item">
-                <div className="stat-number">Dynamic</div>
-                <div className="stat-label">Segmentation</div>
+                <div className="stat-label">Captions</div>
               </div>
             </div>
           </div>
