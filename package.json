@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "description": "A website showcasing the paper titled 'LASER: A Neuro-Symbolic Framework for Learning Spatio-Temporal Scene Graphs with Weak Supervision.'",
   "author": "Jiani Huang, Ziyang Li, Mayur Naik, Ser-Nam Lim",
+  "homepage": "https://video-fm.github.io",
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "deploy": "next build && touch out/.nojekyll && gh-pages -d out --dotfiles"
   },
   "dependencies": {
     "next": "latest",
@@ -15,8 +17,9 @@
     "react-dom": "latest"
   },
   "devDependencies": {
-    "typescript": "latest",
+    "@types/node": "latest",
     "@types/react": "latest",
-    "@types/node": "latest"
+    "gh-pages": "^6.3.0",
+    "typescript": "latest"
   }
 }
