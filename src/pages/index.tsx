@@ -156,7 +156,7 @@ export default function Home() {
                 VINE is a foundation model specifically designed for real-time video understanding, providing unprecedented capabilities for extracting spatio-temporal scene graphs from video data.
               </p>
               <div className="hero-actions">
-                <a href="#" className="demo-button">
+                <a href="https://colab.research.google.com/drive/1J_kjrGCEXsbLXfze8bX9omHk953ylM4A?usp=sharing" target="_blank" rel="noopener noreferrer" className="demo-button">
                   <span className="button-icon">▶</span>
                   Try the demo
                 </a>
@@ -243,24 +243,75 @@ export default function Home() {
               VINE is engineered for speed and accessibility, running smoothly on everything from consumer CPUs to high-end GPUs and cloud TPUs. Unlike heavyweight video understanding models that demand specialized hardware, VINE's efficient late fusion architecture keeps computational requirements minimal while maintaining real-time performance. The framework is compatible with both PyTorch and JAX, allowing developers to leverage their preferred ecosystem and hardware acceleration. 
             </p>
             
-            {/* Performance Tables - Placeholder */}
+            {/* Performance Tables */}
             <div className="performance-tables">
               <div className="table-container">
-                <h3 className="table-title">Performance Benchmarks</h3>
-                <div className="table-placeholder">
-                  <div className="placeholder-content">
-                    <div className="placeholder-text">Performance comparison tables will be displayed here</div>
-                    <div className="placeholder-subtext">Hardware compatibility and inference speed metrics</div>
-                  </div>
+                <h3 className="table-title">Inference Performance</h3>
+                <div className="efficiency-table-container">
+                  <table className="efficiency-table">
+                    <thead>
+                      <tr>
+                        <th>Hardware</th>
+                        <th>Average Time per Frame</th>
+                        <th>FPS</th>
+                        <th>Framework</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td className="hardware-cell">H100 GPU</td>
+                        <td className="time-cell highlight">0.015447s (15.447ms)</td>
+                        <td className="fps-cell highlight">64.7</td>
+                        <td className="framework-cell">PyTorch</td>
+                      </tr>
+                      <tr>
+                        <td className="hardware-cell">CPU</td>
+                        <td className="time-cell">0.056939s (56.939ms)</td>
+                        <td className="fps-cell">17.6</td>
+                        <td className="framework-cell">PyTorch</td>
+                      </tr>
+                      <tr className="placeholder-row">
+                        <td className="hardware-cell">TPU v4</td>
+                        <td className="time-cell placeholder">Coming soon</td>
+                        <td className="fps-cell placeholder">Coming soon</td>
+                        <td className="framework-cell">JAX</td>
+                      </tr>
+                      <tr className="placeholder-row">
+                        <td className="hardware-cell">H100 GPU</td>
+                        <td className="time-cell placeholder">Coming soon</td>
+                        <td className="fps-cell placeholder">Coming soon</td>
+                        <td className="framework-cell">JAX</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
+                <p className="efficiency-caption">
+                  Forward pass timing results for VINE model inference per frame across different hardware configurations.
+                </p>
               </div>
               
               <div className="table-container">
                 <h3 className="table-title">Hardware Compatibility</h3>
-                <div className="table-placeholder">
-                  <div className="placeholder-content">
-                    <div className="placeholder-text">Hardware support matrix will be displayed here</div>
-                    <div className="placeholder-subtext">CPU, GPU, and TPU performance metrics</div>
+                <div className="compatibility-grid">
+                  <div className="compatibility-item">
+                    <div className="compatibility-icon">🖥️</div>
+                    <h4>CPU Support</h4>
+                    <p>Low resource allows fast CPU inference with low memory usage</p>
+                  </div>
+                  <div className="compatibility-item">
+                    <div className="compatibility-icon">⚡</div>
+                    <h4>GPU Acceleration</h4>
+                    <p>CUDA-enabled GPUs for high-performance inference</p>
+                  </div>
+                  <div className="compatibility-item">
+                    <div className="compatibility-icon">🚀</div>
+                    <h4>TPU Integration</h4>
+                    <p>Google TPU support via JAX for cloud deployment</p>
+                  </div>
+                  <div className="compatibility-item">
+                    <div className="compatibility-icon">🔧</div>
+                    <h4>Framework Flexibility</h4>
+                    <p>Compatible with both PyTorch and JAX ecosystems</p>
                   </div>
                 </div>
               </div>
