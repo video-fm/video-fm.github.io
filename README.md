@@ -1,6 +1,6 @@
-# LASER Paper Website
+# VINE Project Website
 
-This project is a website showcasing the paper titled "LASER: A Neuro-Symbolic Framework for Learning Spatio-Temporal Scene Graphs with Weak Supervision."
+This project is a website showcasing VINE - a foundation model for video understanding.
 
 ## Authors
 - Jiani Huang
