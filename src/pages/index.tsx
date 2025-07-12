@@ -406,7 +406,7 @@ export default function Home() {
                 <div className="feature-block">
                   <h3 className="feature-title">Fine-tuning & Adaptation</h3>
                   <p className="feature-description">
-                    Beyond prompting, VINE's foundation model can be efficiently fine-tuned for specialized downstream tasks. The modular architecture enables task-specific adaptation through either full finetuning or parameter-efficient techniques while preserving the core video understanding capabilities, making it suitable for domain-specific applications across industries.
+                    Beyond prompting, VINE can be efficiently fine-tuned for specialized tasks. The modular architecture enables task-specific adaptation through either full finetuning or parameter-efficient techniques while preserving the core video understanding capabilities, making it suitable for domain-specific applications in various fields.
                   </p>
     
                 </div>
