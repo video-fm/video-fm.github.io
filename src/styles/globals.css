@@ -438,7 +438,8 @@ a {
 @supports (-webkit-touch-callout: none) {
   .zero-shot-video {
     -webkit-transform: translateZ(0);
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    transform: translateZ(0);
+    /* -webkit-mask-image: -webkit-radial-gradient(white, black); */
   }
 }
 
