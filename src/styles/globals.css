@@ -333,6 +333,8 @@ a {
 .zero-shot-videos {
   text-align: center;
   margin-top: 3rem;
+  width: 100%;
+  overflow: hidden;
 }
 
 .video-grid-four {
@@ -351,6 +353,10 @@ a {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background: #f8f9fa;
+  display: block;
+  max-width: 100%;
+  -webkit-playsinline: true;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .zero-shot-video:hover {
@@ -1213,13 +1219,18 @@ a {
   }
 
   .video-grid-four {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-    max-width: 400px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    max-width: 100%;
   }
 
   .zero-shot-video {
-    height: 200px;
+    height: 180px;
+    min-height: 180px;
+    width: 100%;
+    object-fit: contain;
+    background: #f8f9fa;
+    border-radius: 8px;
   }
 
   .dataset-name {
@@ -1465,12 +1476,18 @@ a {
   }
 
   .video-grid-four {
-    gap: 0.5rem;
-    max-width: 350px;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 100%;
   }
 
   .zero-shot-video {
-    height: 120px;
+    height: 200px;
+    min-height: 200px;
+    width: 100%;
+    object-fit: contain;
+    background: #f8f9fa;
+    border-radius: 8px;
   }
 
   .dataset-stats {
@@ -1584,5 +1601,17 @@ a {
   
   .penn-text {
     font-size: 1rem;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 320px) {
+  .zero-shot-video {
+    height: 160px !important;
+    min-height: 160px !important;
+  }
+  
+  .video-grid-four {
+    gap: 0.5rem;
   }
 }

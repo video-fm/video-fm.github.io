@@ -271,12 +271,6 @@ export default function Home() {
                         <td className="framework-cell">PyTorch</td>
                       </tr>
                       <tr className="placeholder-row">
-                        <td className="hardware-cell">TPU v4</td>
-                        <td className="time-cell placeholder">Coming soon</td>
-                        <td className="fps-cell placeholder">Coming soon</td>
-                        <td className="framework-cell">JAX</td>
-                      </tr>
-                      <tr className="placeholder-row">
                         <td className="hardware-cell">H100 GPU</td>
                         <td className="time-cell placeholder">Coming soon</td>
                         <td className="fps-cell placeholder">Coming soon</td>
@@ -304,14 +298,14 @@ export default function Home() {
                     <p>CUDA-enabled GPUs for high-performance inference</p>
                   </div>
                   <div className="compatibility-item">
-                    <div className="compatibility-icon">🚀</div>
-                    <h4>TPU Integration</h4>
-                    <p>Google TPU support via JAX for cloud deployment</p>
-                  </div>
-                  <div className="compatibility-item">
                     <div className="compatibility-icon">🔧</div>
                     <h4>Framework Flexibility</h4>
                     <p>Compatible with both PyTorch and JAX ecosystems</p>
+                  </div>
+                  <div className="compatibility-item">
+                  <div className="compatibility-icon">💾</div>
+                    <h4>Memory Efficient</h4>
+                    <p>Low memory footprint enables deployment on resource-constrained devices</p>
                   </div>
                 </div>
               </div>
