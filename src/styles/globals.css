@@ -24,6 +24,19 @@ a {
   text-decoration: none;
 }
 
+/* Inline links within text */
+.inline-link {
+  color: #2563eb;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.inline-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
 /* Navigation */
 .nav {
   position: fixed;

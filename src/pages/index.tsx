@@ -413,7 +413,7 @@ export default function Home() {
                <div className="performance-results">
                  <h3 className="results-title">Finetuned Action Recognition Performance</h3>
                  <p className="results-description">
-                   VINE demonstrates strong performance on action recognition across different training scenarios on ActivityNet. We compare against state-of-the-art action recognition models including BIKE, Text4Vis, ResT, and E2E, showing competitive zero-shot and finetuned capabilities.
+                   VINE demonstrates strong performance on action recognition across different training scenarios on <a href="http://activity-net.org/index.html" target="_blank" rel="noopener noreferrer" className="inline-link">ActivityNet</a>. VINE uses SGClip as its backbone architecture for scene graph generation. We compare against state-of-the-art action recognition models including BIKE, Text4Vis, ResT, and E2E, showing competitive zero-shot and finetuned capabilities.
                  </p>
                  
                  <div className="performance-table-container">
@@ -428,7 +428,7 @@ export default function Home() {
                      <tbody>
                        <tr className="category-row">
                          <td rowSpan={6} className="category-cell">Zero-shot</td>
-                         <td>SGClip</td>
+                         <td>VINE</td>
                          <td className="accuracy-cell">76.34</td>
                        </tr>
                        <tr>
@@ -453,7 +453,7 @@ export default function Home() {
                        </tr>
                        <tr className="category-row">
                          <td rowSpan={2} className="category-cell">Few-shot (1%)</td>
-                         <td>SGClip</td>
+                         <td>VINE</td>
                          <td className="accuracy-cell highlight">80.10</td>
                        </tr>
                        <tr>
@@ -462,7 +462,7 @@ export default function Home() {
                        </tr>
                        <tr className="category-row">
                          <td rowSpan={2} className="category-cell">Few-shot (5%)</td>
-                         <td>SGClip</td>
+                         <td>VINE</td>
                          <td className="accuracy-cell highlight">86.05</td>
                        </tr>
                        <tr>
