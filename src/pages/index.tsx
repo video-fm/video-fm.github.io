@@ -150,10 +150,16 @@ export default function Home() {
                 "If a picture is worth 1000 words, how many is a video worth?"
               </div>
               <p className="hero-description">
-                Video understanding is the future. There is a wealth of data locked inside video that traditional methods cannot unlock. Our foundation model helps extract meaningful insights from real-time video data, with future applications in healthcare monitoring, robotic perception, and security analysis.
+                Every second, millions of hours of video capture complex human behaviors, environmental changes, and intricate interactions. While humans can easily comprehend these visual narratives, teaching machines to do so remains a long-standing and fundamental challenge in artificial intelligence.
               </p>
               <p className="hero-description">
-                VINE is a foundation model specifically designed for real-time video understanding, providing unprecedented capabilities for extracting spatio-temporal scene graphs from video data.
+                VINE is a foundation model for video understanding. It extracts meaningful insights from video for applications in healthcare monitoring, robotic perception, security analysis, and many other domains.
+              </p>
+              <p className="hero-description">
+                VINE transforms raw video into structured knowledge. Specifically designed for real-time deployment, it provides unprecedented capabilities for extracting spatio-temporal scene graphs from video data. It comprehends not just individual frames but the rich temporal relationships and spatial dynamics that define real-world events.
+              </p>
+              <p className="hero-description">
+                From detecting early signs of deterioration in hospitalized patients to enabling robots to navigate complex social environments, VINE is the first foundation model for video understanding that is both versatile and efficient.
               </p>
               <div className="hero-actions">
                 <a href="https://colab.research.google.com/drive/1J_kjrGCEXsbLXfze8bX9omHk953ylM4A?usp=sharing" target="_blank" rel="noopener noreferrer" className="demo-button">
@@ -394,7 +400,7 @@ export default function Home() {
                 <div className="feature-block">
                   <h3 className="feature-title">Fine-tuning & Adaptation</h3>
                   <p className="feature-description">
-                    Beyond prompting, VINE's foundation model can be efficiently fine-tuned for specialized downstream tasks. The modular architecture enables task-specific adaptation through either full finetuning or parameter-efficient techniques while preserving the core video understanding capabilities, making it suitable for domain-specific applications across industries.
+                    Beyond prompting, VINE can be efficiently fine-tuned for specialized tasks. The modular architecture enables task-specific adaptation through either full finetuning or parameter-efficient techniques while preserving the core video understanding capabilities, making it suitable for domain-specific applications in various fields.
                   </p>
     
                 </div>
@@ -542,15 +548,21 @@ export default function Home() {
                 <h3 className="team-title">Core Contributors</h3>
                 <div className="team-members">
                   <div className="team-member">
-                    <div className="member-name">Jiani Huang</div>
+                    <div className="member-name">
+                      <a href="https://www.cis.upenn.edu/~jianih/" target="_blank" rel="noopener noreferrer">Jiani Huang</a>
+                    </div>
                     <div className="member-affiliation">University of Pennsylvania</div>
                   </div>
                   <div className="team-member">
-                    <div className="member-name">Amish Sethi</div>
+                    <div className="member-name">
+                      <a href="https://www.linkedin.com/in/amish-sethi/" target="_blank" rel="noopener noreferrer">Amish Sethi</a>
+                    </div>
                     <div className="member-affiliation">University of Pennsylvania</div>
                   </div>
                   <div className="team-member">
-                    <div className="member-name">Matthew Kuo</div>
+                    <div className="member-name">
+                      <a href="https://www.linkedin.com/in/kuomat/" target="_blank" rel="noopener noreferrer">Matthew Kuo</a>
+                    </div>
                     <div className="member-affiliation">University of Pennsylvania</div>
                   </div>
                 </div>
@@ -560,15 +572,21 @@ export default function Home() {
                 <h3 className="team-title">Collaborators</h3>
                 <div className="team-members">
                   <div className="team-member">
-                    <div className="member-name">Ziyang Li</div>
+                    <div className="member-name">
+                      <a href="https://liby99.github.io/" target="_blank" rel="noopener noreferrer">Ziyang Li</a>
+                    </div>
                     <div className="member-affiliation">University of Pennsylvania</div>
                   </div>
                   <div className="team-member">
-                    <div className="member-name">Mayank Keoliya</div>
+                    <div className="member-name">
+                      <a href="https://www.seas.upenn.edu/~mkeoliya/" target="_blank" rel="noopener noreferrer">Mayank Keoliya</a>
+                    </div>
                     <div className="member-affiliation">University of Pennsylvania</div>
                   </div>
                   <div className="team-member">
-                    <div className="member-name">Neelay Velingker</div>
+                    <div className="member-name">
+                      <a href="https://nvelingker.github.io/" target="_blank" rel="noopener noreferrer">Neelay Velingker</a>
+                    </div>
                     <div className="member-affiliation">University of Pennsylvania</div>
                   </div>
                 </div>
@@ -578,11 +596,15 @@ export default function Home() {
                 <h3 className="team-title">Faculty</h3>
                 <div className="team-members">
                   <div className="team-member">
-                    <div className="member-name">Mayur Naik</div>
+                    <div className="member-name">
+                      <a href="https://www.cis.upenn.edu/~mhnaik/" target="_blank" rel="noopener noreferrer">Mayur Naik</a>
+                    </div>
                     <div className="member-affiliation">University of Pennsylvania</div>
                   </div>
                   <div className="team-member">
-                    <div className="member-name">Sernam Lim</div>
+                    <div className="member-name">
+                      <a href="https://sites.google.com/site/sernam" target="_blank" rel="noopener noreferrer">Sernam Lim</a>
+                    </div>
                     <div className="member-affiliation">University of Central Florida</div>
                   </div>
                 </div>

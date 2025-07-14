@@ -1,27 +1,16 @@
-# LASER Paper Website
+# VINE Website
 
-This project is a website showcasing the paper titled "LASER: A Neuro-Symbolic Framework for Learning Spatio-Temporal Scene Graphs with Weak Supervision."
-
-## Authors
-- Jiani Huang
-- Ziyang Li
-- Mayur Naik
-- Ser-Nam Lim
-
-## Links
-- [Paper](URL_TO_PAPER)
-- [Code](URL_TO_CODE)
-- [Dataset](URL_TO_DATASET)
+This repository contains the code for the website showcasing VINE - a foundation model for video understanding.
 
 ## Getting Started
 
 To run this project locally, follow these steps:
 
 1. Clone the repository:
-   git clone https://github.com/yourusername/laser-paper-website.git
+   git clone git@github.com:video-fm/video-fm.github.io.git
 
 2. Navigate to the project directory:
-   cd laser-paper-website
+   cd vine-website
 
 3. Install the dependencies:
    npm install

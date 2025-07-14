@@ -1,8 +1,7 @@
 {
-  "name": "laser-paper-website",
+  "name": "vine-website",
   "version": "1.0.0",
-  "description": "A website showcasing the paper titled 'LASER: A Neuro-Symbolic Framework for Learning Spatio-Temporal Scene Graphs with Weak Supervision.'",
-  "author": "Jiani Huang, Ziyang Li, Mayur Naik, Ser-Nam Lim",
+  "description": "A website showcasing VINE: A Foundation Model for Video Understanding",
   "homepage": "https://video-fm.github.io",
   "license": "MIT",
   "scripts": {
