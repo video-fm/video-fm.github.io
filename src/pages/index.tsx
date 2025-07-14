@@ -337,6 +337,7 @@ export default function Home() {
                     muted
                     loop
                     playsInline
+                    preload="metadata"
                   />
                 </div>
                 <div className="video-item">
@@ -347,6 +348,7 @@ export default function Home() {
                     muted
                     loop
                     playsInline
+                    preload="metadata"
                   />
                 </div>
                 <div className="video-item">
@@ -357,6 +359,7 @@ export default function Home() {
                     muted
                     loop
                     playsInline
+                    preload="metadata"
                   />
                 </div>
                 <div className="video-item">
@@ -367,6 +370,7 @@ export default function Home() {
                     muted
                     loop
                     playsInline
+                    preload="metadata"
                   />
                 </div>
               </div>
