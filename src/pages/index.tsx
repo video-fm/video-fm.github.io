@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function PromptabilityDemo() {
   const [selectedObjects, setSelectedObjects] = useState('["person","sofa"]');
@@ -30,6 +30,41 @@ function PromptabilityDemo() {
       setShowVideo(true);
     }, 1500);
   };
+
+  useEffect(() => {
+    // Force video loading on mobile
+    const handleVideoLoad = () => {
+      const videos = document.querySelectorAll('.zero-shot-video') as NodeListOf<HTMLVideoElement>;
+      videos.forEach(video => {
+        video.load(); // Force load
+        
+        // Try to play with a user interaction fallback
+        const playVideo = () => {
+          video.play().catch((e: any) => {
+            console.log('Autoplay failed:', e);
+            // On first user interaction, try again
+            document.addEventListener('touchstart', () => {
+              video.play();
+            }, { once: true });
+          });
+        };
+        
+        if (video.readyState >= 3) {
+          playVideo();
+        } else {
+          video.addEventListener('loadeddata', playVideo, { once: true });
+        }
+      });
+    };
+  
+    // Run on load and orientation change
+    handleVideoLoad();
+    window.addEventListener('orientationchange', handleVideoLoad);
+    
+    return () => {
+      window.removeEventListener('orientationchange', handleVideoLoad);
+    };
+  }, []);
 
   return (
     <div className="promptability-demo">
@@ -337,7 +372,9 @@ export default function Home() {
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload="auto"
+                    controls={false}
+                    style={{pointerEvents: 'none'}}
                   />
                 </div>
                 <div className="video-item">
@@ -348,7 +385,9 @@ export default function Home() {
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload="auto"
+                    controls={false}
+                    style={{pointerEvents: 'none'}}
                   />
                 </div>
                 <div className="video-item">
@@ -359,7 +398,9 @@ export default function Home() {
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload="auto"
+                    controls={false}
+                    style={{pointerEvents: 'none'}}
                   />
                 </div>
                 <div className="video-item">
@@ -370,7 +411,9 @@ export default function Home() {
                     muted
                     loop
                     playsInline
-                    preload="metadata"
+                    preload="auto"
+                    controls={false}
+                    style={{pointerEvents: 'none'}}
                   />
                 </div>
               </div>

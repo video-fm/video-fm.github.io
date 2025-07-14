@@ -372,9 +372,7 @@ a {
   display: block;
   max-width: 100%;
   -webkit-playsinline: true;
-  -webkit-tap-highlight-color: transparent;
   /* Add these for better mobile compatibility */
-  -webkit-transform: translateZ(0);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
