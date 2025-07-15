@@ -378,7 +378,7 @@ export default function Home() {
               <div className="video-grid-four">
                 <div className="video-item">
                   <video 
-                    src="/annotated_videos/8.mp4"
+                    src="/annotated_videos/8.mov"
                     className="zero-shot-video"
                     autoPlay
                     muted
@@ -404,7 +404,7 @@ export default function Home() {
                 </div>
                 <div className="video-item">
                   <video 
-                    src="/annotated_videos/10.mp4"
+                    src="/annotated_videos/10.mov"
                     className="zero-shot-video"
                     autoPlay
                     muted
@@ -417,7 +417,7 @@ export default function Home() {
                 </div>
                 <div className="video-item">
                   <video 
-                    src="/annotated_videos/11.mp4"
+                    src="/annotated_videos/11.mov"
                     className="zero-shot-video"
                     autoPlay
                     muted
