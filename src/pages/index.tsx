@@ -31,38 +31,37 @@ function PromptabilityDemo() {
     }, 1500);
   };
 
+  // Automatically play/pause the four zero-shot videos based on their
+  // visibility in the viewport. This respects iOS Safari’s autoplay rules
+  // (video must be muted, inline, and *visible*) without resorting to the
+  // manual load()/play() workaround that was causing blank frames on mobile.
   useEffect(() => {
-    // Force video loading on mobile
-    const handleVideoLoad = () => {
-      const videos = document.querySelectorAll('.zero-shot-video') as NodeListOf<HTMLVideoElement>;
-      videos.forEach(video => {
-        video.load(); // Force load
-        
-        // Try to play with a user interaction fallback
-        const playVideo = () => {
-          video.play().catch((e: any) => {
-            console.log('Autoplay failed:', e);
-            // On first user interaction, try again
-            document.addEventListener('touchstart', () => {
-              video.play();
-            }, { once: true });
-          });
-        };
-        
-        if (video.readyState >= 3) {
-          playVideo();
-        } else {
-          video.addEventListener('loadeddata', playVideo, { once: true });
-        }
-      });
-    };
-  
-    // Run on load and orientation change
-    handleVideoLoad();
-    window.addEventListener('orientationchange', handleVideoLoad);
-    
+    const zeroShotVideos = document.querySelectorAll('.zero-shot-video') as NodeListOf<HTMLVideoElement>;
+
+    if (!('IntersectionObserver' in window)) {
+      // Fallback – just attempt to play them once.
+      zeroShotVideos.forEach(v => v.play().catch(() => {}));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          const video = entry.target as HTMLVideoElement;
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
+
+    zeroShotVideos.forEach(video => observer.observe(video));
+
     return () => {
-      window.removeEventListener('orientationchange', handleVideoLoad);
+      zeroShotVideos.forEach(video => observer.unobserve(video));
     };
   }, []);
 
