@@ -60,8 +60,21 @@ function PromptabilityDemo() {
 
     zeroShotVideos.forEach(video => observer.observe(video));
 
+    // If Safari still blocks autoplay, fall back to a single user-gesture.
+    const handleFirstTouch = () => {
+      zeroShotVideos.forEach(video => {
+        const rect = video.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        if (isVisible) video.play().catch(() => {});
+      });
+      document.removeEventListener('touchstart', handleFirstTouch);
+    };
+
+    document.addEventListener('touchstart', handleFirstTouch, { once: true });
+
     return () => {
       zeroShotVideos.forEach(video => observer.unobserve(video));
+      document.removeEventListener('touchstart', handleFirstTouch);
     };
   }, []);
 
@@ -378,7 +391,7 @@ export default function Home() {
                 </div>
                 <div className="video-item">
                   <video 
-                    src="/annotated_videos/9.mp4"
+                    src="/annotated_videos/9.mov"
                     className="zero-shot-video"
                     autoPlay
                     muted
