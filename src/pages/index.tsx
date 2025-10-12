@@ -608,13 +608,13 @@ export default function Home() {
                 <div className="team-members">
                   <div className="team-member">
                     <div className="member-name">
-                      <a href="https://www.cis.upenn.edu/~jianih/" target="_blank" rel="noopener noreferrer">Jiani Huang</a>
+                      <a href="https://amishsethi.github.io/personal-website/" target="_blank" rel="noopener noreferrer">Amish Sethi</a>
                     </div>
                     <div className="member-affiliation">University of Pennsylvania</div>
                   </div>
                   <div className="team-member">
                     <div className="member-name">
-                      <a href="https://www.linkedin.com/in/amish-sethi/" target="_blank" rel="noopener noreferrer">Amish Sethi</a>
+                      <a href="https://www.cis.upenn.edu/~jianih/" target="_blank" rel="noopener noreferrer">Jiani Huang</a>
                     </div>
                     <div className="member-affiliation">University of Pennsylvania</div>
                   </div>
