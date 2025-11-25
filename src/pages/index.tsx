@@ -312,21 +312,21 @@ export default function Home() {
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="hardware-cell">H100 GPU</td>
-                        <td className="time-cell highlight">0.015447s (15.447ms)</td>
-                        <td className="fps-cell highlight">64.7</td>
+                        <td className="hardware-cell">CPU</td>
+                        <td className="time-cell">56.94ms</td>
+                        <td className="fps-cell">17.6</td>
                         <td className="framework-cell">PyTorch</td>
                       </tr>
                       <tr>
-                        <td className="hardware-cell">CPU</td>
-                        <td className="time-cell">0.056939s (56.939ms)</td>
-                        <td className="fps-cell">17.6</td>
+                        <td className="hardware-cell">H100 GPU</td>
+                        <td className="time-cell highlight">17.06ms</td>
+                        <td className="fps-cell highlight">58.6</td>
                         <td className="framework-cell">PyTorch</td>
                       </tr>
                       <tr className="placeholder-row">
                         <td className="hardware-cell">H100 GPU</td>
-                        <td className="time-cell placeholder">Coming soon</td>
-                        <td className="fps-cell placeholder">Coming soon</td>
+                        <td className="time-cell placeholder">13.63ms</td>
+                        <td className="fps-cell placeholder">73.37</td>
                         <td className="framework-cell">JAX</td>
                       </tr>
                     </tbody>
