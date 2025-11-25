@@ -323,12 +323,10 @@ export default function Home() {
                         <td className="fps-cell highlight">58.6</td>
                         <td className="framework-cell">PyTorch</td>
                       </tr>
-                      <tr className="placeholder-row">
                         <td className="hardware-cell">H100 GPU</td>
                         <td className="time-cell placeholder">13.63ms</td>
                         <td className="fps-cell placeholder">73.37</td>
                         <td className="framework-cell">JAX</td>
-                      </tr>
                     </tbody>
                   </table>
                 </div>
