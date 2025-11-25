@@ -325,7 +325,7 @@ export default function Home() {
                       </tr>
                         <td className="hardware-cell">H100 GPU</td>
                         <td className="time-cell placeholder">13.63ms</td>
-                        <td className="fps-cell placeholder">73.37</td>
+                        <td className="fps-cell placeholder">73.4</td>
                         <td className="framework-cell">JAX</td>
                     </tbody>
                   </table>
